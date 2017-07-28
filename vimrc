@@ -80,6 +80,12 @@ vnoremap ; :
 " Remap the escape from esc to capslk
 inoremap jj <Esc>
 
+" Remap the keys need to move tabs, so just need to use ctr + movement key
+map <C-J> <C-W>j<C-W>_
+map <C-K> <C-W>k<C-W>_
+map <C-H> <C-W>h<C-W>_
+map <C-L> <C-W>l<C-W>_
+
 " Hybrid line number (both relative and absolute)
 set relativenumber
 set number
