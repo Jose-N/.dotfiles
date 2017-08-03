@@ -1,0 +1,45 @@
+snippet fetch "fetch api"
+fetch('$1')
+	.then(response => {
+		if (response.ok) {
+			console.log('response ok')
+			return response.$2
+		}else {
+			let error = new Error(`${response.status} (${response.statusText})`)
+			throw(error)
+		}
+	})
+	.then($3 => {
+		$4
+	})
+	.catch(error => console.error(`Error in fetch: ${error.message}`))
+endsnippet
+
+snippet promise_return "returns a promise for use in functions"
+return new Promise((resolve, reject) => {
+	if($1) {
+		resolve($2)
+	} else {
+		reject($3)
+		}
+})
+endsnippet
+
+snippet function_one_line "creates a basic function in js"
+let $1 = ($2) => { $3 }
+endsnippet
+
+snippet function_multi_line "creates a mutli line function"
+let $1 = ($2) => {
+	$3
+}
+endsnippet
+
+snippet then_catch "add .then and .catch" b
+.then (($1) => {
+	$2
+})
+.catch(($3) => {
+	$4
+})
+endsnippet

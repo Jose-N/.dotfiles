@@ -1,5 +1,5 @@
-set nocompatible	" be iMproved, required
-filetype off		" required
+set nocompatible
+filetype off
 
 " Setting up Vundle 
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -38,9 +38,13 @@ Plugin 'Shutnik/jshint2.vim'
 " Tern-based JavaScript editing support
 Plugin 'ternjs/tern_for_vim'
 
+" Snippets for Vim
+Plugin 'SirVer/ultisnips'
+
 call vundle#end()
 
 filetype plugin indent on 	" Filetype auton-detection
+filetype plugin on
 syntax on 			" Syntax highlighting
 
 set tabstop=2
@@ -81,10 +85,25 @@ vnoremap ; :
 inoremap jj <Esc>
 
 " Remap the keys need to move tabs, so just need to use ctr + movement key
-map <C-J> <C-W>j<C-W>_
-map <C-K> <C-W>k<C-W>_
-map <C-H> <C-W>h<C-W>_
-map <C-L> <C-W>l<C-W>_
+map <C-J> <C-W>j
+map <C-K> <C-W>k
+map <C-H> <C-W>h
+map <C-L> <C-W>l
+
+" Remapping the expand key for Emmett
+let g:user_emmet_expandabbr_key='<c-e>'
+
+"make YCM compatible with UltiSnips (using supertab)
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
+ 
+" better key bindings for UltiSnipsExpandTrigger
+let g:UltiSnipsExpandTrigger="<cr>"
+let g:UltiSnipsJumpForwardTrigger="<c-j>"
+let g:UltiSnipsJumpBackwardTrigger="<c-k>"
+let g:UltiSnipsEditSplit='vertical'
+let g:UltiSnipsSnippetDirectories = ['~/.vim/UltiSnips', 'UltiSnips']
 
 " Hybrid line number (both relative and absolute)
 set relativenumber

@@ -1,0 +1,55 @@
+snippet Rspec "creates a Rspec template"
+require "spec_helper"
+
+RSpec.describe $1 do
+	describe '$2' do
+		$3
+	end
+end
+endsnippet
+
+
+snippet let_rspec "create a variable in Rspec"
+let(:$1) { $2 }
+endsnippet
+
+snippet Capybara "create a Capybara template"
+feature "$1", %(
+	$2
+) do
+	before(:each) do
+		$3
+	end
+
+	after(:each) do
+		$4
+	end
+
+	scenario "$5" do
+		$6
+	end
+end
+endsnippet
+
+snippet class "create a ruby class"
+class $1
+	def ${2:initialize}($3)
+	end
+end
+endsnippet
+
+snippet attr_reader "creates an attr_reader"
+attr_reader :$1
+endsnippet
+
+snippet attr_writer "creates an attr_writer"
+attr_writer :$1
+endsnippet
+
+snippet attr_accessor "creates an attr_accessor"
+attr_accessor :$1
+endsnippet
+
+snippet pry "requires pry"
+require 'pry'
+endsnippet
