@@ -41,6 +41,9 @@ Plugin 'ternjs/tern_for_vim'
 " Snippets for Vim
 Plugin 'SirVer/ultisnips'
 
+" latex-suite
+Plugin 'vim-latex/vim-latex'
+
 call vundle#end()
 
 filetype plugin indent on 	" Filetype auton-detection
@@ -104,6 +107,12 @@ let g:UltiSnipsJumpForwardTrigger="<c-j>"
 let g:UltiSnipsJumpBackwardTrigger="<c-k>"
 let g:UltiSnipsEditSplit='vertical'
 let g:UltiSnipsSnippetDirectories = ['~/.vim/UltiSnips', 'UltiSnips']
+
+" Auto open NERDTree when vim opens
+autocmd VimEnter * NERDTree
+autocmd BufEnter * NERDTreeMirror
+
+autocmd VimEnter * wincmd w
 
 " Hybrid line number (both relative and absolute)
 set relativenumber
