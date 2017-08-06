@@ -1,3 +1,4 @@
+# -------------REGULAR JAVASCRIPT----------------
 snippet fetch "fetch api"
 fetch('$1')
 	.then(response => {
@@ -42,4 +43,41 @@ snippet then_catch "add .then and .catch" b
 .catch(($3) => {
 	$4
 })
+endsnippet
+
+# -------------REACT.JS----------------
+snippet react_import_and_dom "imports packages to implement React"
+import React from 'react';
+import ReactDOM from 'react-dom';
+endsnippet
+
+snippet component "create a component in react"
+import React from 'react';
+
+const $1 = prop => {
+	return (
+		$2
+	);
+}; 
+
+export default $1;
+endsnippet
+
+snippet component_import "import a component into main.js"
+import $1 from './components/$1';
+endsnippet
+
+snippet react_dom_render "renders JSX to DOM"
+ReactDOM.render(
+	$1,
+	document.getElementById('$2')
+);
+endsnippet
+
+snippet react_tag "creates a react tag" w
+< $1 />
+endsnippet
+
+snippet for_loop "loop through an array in react" w
+{$1.map(($2) => $3 )}
 endsnippet
