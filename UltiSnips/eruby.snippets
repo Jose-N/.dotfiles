@@ -11,3 +11,34 @@ snippet erb_loop "loop using erb"
 	$3
 <% end %>
 endsnippet
+
+snippet form_for "create a form"
+<%= form_for @$1 do |f| %>
+	<% if @$1.errors.any? %>
+		<div id="error_explanation">
+			<h2><%= pluralize(@$1.errors.count, "error") %> prohibited this $1 from being saved:</h2>
+
+			<ul>
+			<% @$1.errors.full_messages.each do |message| %>
+				<li><%= message %></li>
+			<% end %>
+			</ul>
+		</div>
+	<% end %>
+	$2
+	<%= f.submit %>
+<% end %>
+endsnippet
+
+snippet input "create a form input" w
+<%= f.label :$1 %>
+<%= f.text_field :$1 %><br />
+<br />
+endsnippet
+
+snippet input_div "create a form input with div" w
+<div class="field">
+	<%= f.label :$1 %>
+	<%= f.text_field :$1 %>
+</div>
+endsnippet

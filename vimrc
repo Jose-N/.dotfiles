@@ -44,6 +44,9 @@ Plugin 'SirVer/ultisnips'
 " latex-suite
 Plugin 'vim-latex/vim-latex'
 
+" vim-rails
+Plugin 'tpope/vim-rails'
+
 call vundle#end()
 
 filetype plugin indent on 	" Filetype auton-detection
@@ -88,10 +91,10 @@ vnoremap ; :
 inoremap jj <Esc>
 
 " Remap the keys need to move tabs, so just need to use ctr + movement key
-map <C-J> <C-W>j
-map <C-K> <C-W>k
-map <C-H> <C-W>h
-map <C-L> <C-W>l
+nnoremap <C-j> <C-w>j
+nnoremap <C-K> <C-W>k
+nnoremap <C-H> <C-W>h
+nnoremap <C-L> <C-W>l
 
 " Remapping the expand key for Emmett
 let g:user_emmet_expandabbr_key='<c-e>'

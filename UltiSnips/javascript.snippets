@@ -6,14 +6,31 @@ fetch('$1')
 			console.log('response ok')
 			return response.$2
 		}else {
-			let error = new Error(`${response.status} (${response.statusText})`)
+			let error = new Error(`${3:response.status} (${4:response.statusText})`)
 			throw(error)
 		}
 	})
-	.then($3 => {
-		$4
+	.then($5 => {
+		$6
 	})
-	.catch(error => console.error(`Error in fetch: ${error.message}`))
+	.catch(error => console.error(`Error in fetch: ${7:error.message}`))
+endsnippet
+
+snippet fetch_post "fetch api with a post method"
+fetch('$1', {method: "POST", body :JSON.stringify($2)})
+	.then(response => {
+		if (response.ok) {
+			console.log('response ok')
+			return response.$3
+		}else {
+			let error = new Error(`${4:response.status} (${5:response.statusText})`)
+			throw(error)
+		}
+	})
+	.then($6 => {
+		$7
+	})
+	.catch(error => console.error(`Error in fetch: ${8:error.message}`))
 endsnippet
 
 snippet promise_return "returns a promise for use in functions"
@@ -51,15 +68,39 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 endsnippet
 
-snippet component "create a component in react"
+snippet dumb_component "create a component in react"
 import React from 'react';
 
-const $1 = prop => {
+const $1 = props => {
 	return (
-		$2
+		<div className='$1'>
+			$2
+		</div>
 	);
 }; 
 
+export default $1;
+endsnippet
+
+snippet smart_component "create a component in react"
+import React, {Component} from 'react';
+
+class $1 extends Component {
+	constructor(props) {
+		super(props);
+		this.state={
+		}
+	}
+
+	render() {
+
+	return (
+		<div className="$1">
+			$2
+		</div>
+	)
+	}
+}
 export default $1;
 endsnippet
 
@@ -80,4 +121,65 @@ endsnippet
 
 snippet for_loop "loop through an array in react" w
 {$1.map(($2) => $3 )}
+endsnippet
+
+snippet start_router "set up page for React Router"
+import React, { Component } from 'react';
+import { Router, Route, IndexRoute, browserHistory } from 'react-router';
+
+class $1 extends Component {
+
+	constructor(props){
+		super(props)
+		this.state = {
+
+		}
+	}
+
+	render() {
+	return(
+		<Router history={browserHistory}>
+			<Route path='/' component={$2} >
+				<IndexRoute component={$3} />
+				<Route path='$4' component={$4} />
+			</Route>
+		</Router>
+		)
+	}
+}
+export default $1;
+endsnippet
+
+snippet create_main "create main page and render to DOM"
+import React from 'react';
+import ReactDOM from 'react-dom';
+import App from './App'
+
+ReactDOM.render(
+	<App />,
+	document.getElementById('app')
+);
+endsnippet
+
+snippet link_tag "create link tag" w
+<Link to='$1'>$2</Link>
+endsnippet
+# -------------ENZYME TESTING----------------
+
+snippet react_test 
+import $1 from '../../src/$2/$1';
+import { mount } from 'enzyme';
+import React from 'react';
+
+describe('$1, () => {
+
+	beforeEach(() => {
+	wrapper = mount(
+	);
+	});
+
+	it('$3', () => {
+		expect(wrapper.find('$4').$5).$6;
+	});
+});
 endsnippet
