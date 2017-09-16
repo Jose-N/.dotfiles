@@ -12,15 +12,18 @@ echo "
                 ░                                  
 "
 echo "
-Setup Checklist
+Setup List
 ---------------
 [] Install zsh
+[] Install ohmyzsh
+[] Install Chruby
 [] Install Ruby
 [] Install Rails
-[] Install Node.js & npm
+[] Install NVM
+[] Install Node.js & NPM
 [] Install Postgresql
 
-Customization Checklist
+Customization List
 -----------------------
 [] Create .vimrc
 [] Install Vim plugins
