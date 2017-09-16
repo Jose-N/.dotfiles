@@ -14,10 +14,11 @@ echo "
 echo "
 Setup Checklist
 ---------------
-[x] Install zsh
-[x] Install Ruby
-[x] Install Rails
-[x] Install Node.js & npm
+[] Install zsh
+[] Install Ruby
+[] Install Rails
+[] Install Node.js & npm
+[] Install Postgresql
 
 Customization Checklist
 -----------------------

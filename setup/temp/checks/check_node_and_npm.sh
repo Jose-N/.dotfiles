@@ -9,5 +9,5 @@ else
   sleep 2
   echo "Installing Node.js"
   sleep 2
-  /bin/bash fedora/installs/install_node.sh
+  /bin/bash ubuntu/installs/install_node.sh
 fi

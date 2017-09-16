@@ -9,5 +9,5 @@ else
   sleep 2
   echo "Installing Git"
   sleep 2
-  /bin/bash fedora/installs/install_git.sh
+  /bin/bash ubuntu/installs/install_git.sh
 fi
