@@ -19,7 +19,7 @@ select opt in "Full" "Dev" "Apps" "Config Files" "None"; do
     Full) echo "chose full"; break;;
     Dev) /bin/bash ubuntu/dev/dev.sh; break;;
     Apps) echo "chose apps"; break;;
-    "Config Files") echo "chose files"; break;;
+    "Config Files") /bin/bash ubuntu/config_files/config.sh; break;;
     None) echo "bye bye"; exit;;
   esac
 done
