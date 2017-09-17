@@ -36,10 +36,11 @@ Configure Defaults
 [] Copy rails_template
 "
 mkdir ~/.vim
-cd ../.../../
+git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
+cd ../
 cp configs/vimrc ~/.vim
 vim +PluginInstall +qall
-cp UltiSnips ~/.vim
+cp -R UltiSnips ~/.vim
 
 cp configs/.railsrc ~/
 cp configs/rails_template ~/
