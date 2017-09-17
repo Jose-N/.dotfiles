@@ -1,4 +1,5 @@
 --database=postgresql
+--webpack=react
 --skip-bundle
 --skip-gemfile
 --skip-test

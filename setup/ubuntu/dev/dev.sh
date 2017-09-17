@@ -15,6 +15,7 @@ echo "Starting install for development dependencies
 
 Setup List
 ---------------
+[] Install vim
 [] Install zsh
 [] Install ohmyzsh
 [] Install Chruby
@@ -27,6 +28,19 @@ Setup List
 "
 echo "Checking for updates"
 sudo apt-get update 
+
+echo "Checking for vim"
+sleep 1
+if [[ $(vim 2>/dev/null) ]]
+then
+  echo "You Have vim Installed"
+else
+  echo "vim Not Found"
+  sleep 2
+  echo "Installing vim"
+  sudo apt install vim
+  sleep 2
+fi
 
 echo "Checking for ZSH"
 sleep 1
@@ -74,6 +88,8 @@ else
   sleep 2
   echo "source /usr/local/share/chruby/chruby.sh" >> ~/.zshrc
   echo "source /usr/local/share/chruby/auto.sh" >> ~/.zshrc
+  echo "source /usr/local/share/chruby/chruby.sh" >> ~/.bashrc
+  echo "source /usr/local/share/chruby/auto.sh" >> ~/.bashrc
   echo "Installing ruby-install"
   sleep 2
   wget -O ruby-install-0.6.1.tar.gz https://github.com/postmodern/ruby-install/archive/v0.6.1.tar.gz
@@ -87,6 +103,7 @@ else
   ruby-install ruby 2.3.3
   echo "Checking ruby version"
   chruby
+  chruby 2.3.3
   sleep 3
   echo "Avoid ever having to bundle exec commands"
   gem install rubygems-bundler

@@ -8,14 +8,35 @@ gem 'puma', '~> 3.7'
 gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 gem 'jquery-rails'
-gem 'dotenv-rails' 
+gem 'dotenv-rails'
+gem 'foreman'
+
+#webpacker and support for react embded into rails
+gem 'react_on_rails', '~> 9.0.1'
+gem "webpacker", "~> 3.0"
+
 gem_group :development do
   gem 'listen', '~> 3.0.5'
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
 end
 
+gem_group :test do
+  gem "capybara-screenshot"
+  gem "chromedriver-helper"
+  gem "coveralls", require: false
+  gem "database_cleaner"
+  gem "generator_spec"
+  gem "rspec-retry"
+  gem "selenium-webdriver", "<3.0.0"
+end
+
 gem_group :development, :test do
+  gem 'dotenv-rails' 
+
+  gem 'faker'
+  gem 'phantomjs', :require => 'phantomjs/poltergeist'
+  gem 'poltergeist'
   gem 'capybara'
   gem 'factory_girl_rails'
   gem 'launchy', require: false
@@ -23,7 +44,7 @@ gem_group :development, :test do
   gem 'rspec-rails', '~> 3.5'
   gem 'shoulda'
   gem 'valid_attribute'
-  gem 'coveralls'
+  gem 'database_cleaner'
 end
 
 gem_group :production do
@@ -31,6 +52,8 @@ gem_group :production do
 end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+gem 'mini_racer', platforms: :ruby
 
 run "bundle install"
 
@@ -50,7 +73,7 @@ run "echo '#{rails_helper}' >> spec/rails_helper.rb"
 # add spec dependencies to rails_helper.rb
 spec_helper = <<-SPEC_HELPER
 require "coveralls"
-Coveralls.wear!
+Coveralls.wear!('rails')
 SPEC_HELPER
 run "echo '#{spec_helper}' >> spec/spec_helper.rb"
 
@@ -59,6 +82,9 @@ run "touch .env"
 gitignore = <<-GITIGNORE
 /coverage
 .env
+/public/packs
+/public/packs-test
+/node_modules
 GITIGNORE
 run "echo '#{gitignore}' >> .gitignore"
 
@@ -86,3 +112,8 @@ rake "db:create"
 git :init
 git add: "."
 git commit: "-a -m initial"
+
+generate "react_on_rails:install"
+
+git add: "."
+git commit: "-a -m added react on rails"
