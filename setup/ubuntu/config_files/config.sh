@@ -36,8 +36,10 @@ Configure Defaults
 [] Copy rails_template
 "
 mkdir ~/.vim
-cp ../../configs/vimrc ~/.vim
+cd ../.../../
+cp configs/vimrc ~/.vim
 vim +PluginInstall +qall
-cp ../../UltiSnips ~/.vim
-cp ../../configs/.railsrc ~/
-cp ../../configs/rails_template ~/
+cp UltiSnips ~/.vim
+
+cp configs/.railsrc ~/
+cp configs/rails_template ~/
